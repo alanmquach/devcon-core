@@ -22,5 +22,8 @@ RUN apt-get update && apt-get install -y openssh-server \
     python3-pip
 RUN mkdir /var/run/sshd
 
+EXPOSE 22
+EXPOSE 60000-60010
+
 CMD ["/usr/sbin/sshd", "-D"]
 
