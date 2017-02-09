@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y openssh-server \
     tmux \
     git \
     vim \
+    silversearcher-ag \
     mosh \
     python3-pip
 RUN mkdir /var/run/sshd
