@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 
 MAINTAINER Alan Quach <integsrtite@gmail.com>
 
@@ -14,14 +14,13 @@ RUN apt-get update && apt-get install -y openssh-server \
     dnsutils \
     man \
     build-essential \
-    cmake python-dev python3-dev \
+    cmake python-dev \
     tmux \
     git \
     vim \
     silversearcher-ag \
     mosh \
-    python-pip \
-    python3-pip
+    python-pip
 RUN mkdir /var/run/sshd
 
 EXPOSE 22
