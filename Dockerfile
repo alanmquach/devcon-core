@@ -3,11 +3,11 @@ FROM ubuntu:xenial
 MAINTAINER Alan Quach <integsrtite@gmail.com>
 
 ENV TZ=America/Los_Angeles
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN locale-gen en_US.UTF-8
 
 # CORE
-RUN apt-get update && apt-get install -y openssh-server \
+RUN apt-get update && apt-get install -y \
+    locales \
+    openssh-server \
     ca-certificates \
     curl \
     zip unzip tar \
@@ -20,11 +20,10 @@ RUN apt-get update && apt-get install -y openssh-server \
     vim \
     silversearcher-ag \
     mosh \
-    python-pip
-RUN mkdir /var/run/sshd
-
-EXPOSE 22
-EXPOSE 60000-60010
+    python-pip \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+    && locale-gen en_US.UTF-8 \
+    && mkdir /var/run/sshd
 
 CMD ["/usr/sbin/sshd", "-D"]
 
