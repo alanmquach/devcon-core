@@ -6,6 +6,7 @@ ENV TZ=America/Los_Angeles
 
 # CORE
 RUN apt-get update && apt-get install -y \
+    tzdata \
     locales \
     openssh-server \
     ca-certificates \
@@ -21,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     silversearcher-ag \
     mosh \
     python-pip \
-    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
+    && echo $TZ > /etc/timezone && rm -rf /etc/localtime && dpkg-reconfigure -f noninteractive tzdata \
     && locale-gen en_US.UTF-8 \
     && mkdir /var/run/sshd
 
