@@ -22,8 +22,6 @@ RUN apt-get update && apt-get install -y \
     silversearcher-ag \
     mosh \
     python-pip \
-    && echo $TZ > /etc/timezone && rm -rf /etc/localtime && dpkg-reconfigure -f noninteractive tzdata \
-    && locale-gen en_US.UTF-8 \
     && mkdir /var/run/sshd
 
 CMD ["/usr/sbin/sshd", "-D"]
