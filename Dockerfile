@@ -2,8 +2,6 @@ FROM ubuntu:xenial
 
 MAINTAINER Alan Quach <integsrtite@gmail.com>
 
-ENV TZ=America/Los_Angeles
-
 # CORE
 RUN apt-get update && apt-get install -y \
     tzdata \
