@@ -4,6 +4,7 @@ MAINTAINER Alan Quach <integsrtite@gmail.com>
 
 # CORE
 RUN apt-get update && apt-get install -y \
+    apt-transport-https \
     tzdata \
     locales \
     openssh-server \
