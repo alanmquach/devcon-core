@@ -13,12 +13,14 @@ RUN apt-get update && apt-get install -y \
     openssh-server \
     ca-certificates \
     curl \
+    rsync \
     zip unzip tar \
     dnsutils \
     man \
     build-essential \
     cmake python-dev \
     tmux \
+    git \
     vim \
     silversearcher-ag \
     mosh \
