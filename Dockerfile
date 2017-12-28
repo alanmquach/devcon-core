@@ -26,5 +26,6 @@ RUN apt-get update && apt-get install -y \
     mosh \
     python-pip \
     && mkdir /var/run/sshd
+RUN locale-gen en_US.UTF-8
 
 CMD ["/usr/sbin/sshd", "-D"]
