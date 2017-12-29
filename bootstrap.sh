@@ -15,6 +15,7 @@ if [ -z "$NEWUSER" ]; then
     fi
 else
     adduser --gecos "" --disabled-password $NEWUSER | tee -a $BOOTSTRAPLOG
+    echo "User \"$NEWUSER\" created. Now chown'ing /home/$NEWUSER in case it got mounted in and is owned by root" | tee -a $BOOTSTRAPLOG
     chown $NEWUSER:$NEWUSER /home/$NEWUSER | tee -a $BOOTSTRAPLOG
     if [ -z "$AUTHORIZEDKEYS" ]; then
         echo "authorized_keys was not provided and thus not initialized for $NEWUSER" | tee -a $BOOTSTRAPLOG
