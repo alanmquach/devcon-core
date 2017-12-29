@@ -14,7 +14,8 @@ if [ -z "$NEWUSER" ]; then
         echo "Provided authorized_keys was ignored because no user was provided." | tee -a $BOOTSTRAPLOG
     fi
 else
-    adduser --gecos "" --disabled-password $NEWUSER
+    adduser --gecos "" --disabled-password $NEWUSER | tee -a $BOOTSTRAPLOG
+    chown $NEWUSER:$NEWUSER /home/$NEWUSER | tee -a $BOOTSTRAPLOG
     if [ -z "$AUTHORIZEDKEYS" ]; then
         echo "authorized_keys was not provided and thus not initialized for $NEWUSER" | tee -a $BOOTSTRAPLOG
     else
