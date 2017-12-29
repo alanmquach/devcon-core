@@ -30,7 +30,7 @@ fi
 echo "Checking for /tmp/bootstrap2.sh" | tee -a $BOOTSTRAPLOG
 if [ -f "/tmp/bootstrap2.sh" ]; then
     echo "/tmp/bootstrap2.sh found, executing..." | tee -a $BOOTSTRAPLOG
-    /bin/bash /tmp/bootstrap2.sh | tee -a $BOOTSTRAPLOG
+    /bin/bash /tmp/bootstrap2.sh "$NEWUSER" "$AUTHORIZEDKEYS" | tee -a $BOOTSTRAPLOG
 else
     echo "/tmp/bootstrap2.sh not found. Moving on." | tee -a $BOOTSTRAPLOG
 fi
@@ -40,7 +40,7 @@ if [ -z "$BOOTSTRAPSH" ]; then
 else
     if [ -f "$BOOTSTRAPSH" ]; then
         echo "Executing \"/bin/bash $BOOTSTRAPSH\"" | tee -a $BOOTSTRAPLOG
-        /bin/bash $BOOTSTRAPSH | tee -a $BOOTSTRAPLOG
+        /bin/bash $BOOTSTRAPSH "$NEWUSER" "$AUTHORIZEDKEYS" | tee -a $BOOTSTRAPLOG
         echo "Extended customization complete." | tee -a $BOOTSTRAPLOG
     else
         echo "Provided bootstrap script did not exist: $BOOTSTRAPSH" | tee -a $BOOTSTRAPLOG
