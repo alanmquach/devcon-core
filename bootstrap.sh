@@ -26,6 +26,12 @@ else
     fi
 fi
 
+# This is messy, but it allows extensibility
+if [ -f "/tmp/bootstrap2.sh" ]; then
+    echo "/tmp/bootstrap2.sh found, executing..." | tee -a $BOOTSTRAPLOG
+    /bin/bash /tmp/bootstrap2.sh | tee -a $BOOTSTRAPLOG
+fi
+
 if [ -z "$BOOTSTRAPSH" ]; then
     echo "No further customization." | tee -a $BOOTSTRAPLOG
 else
