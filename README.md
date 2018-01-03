@@ -30,21 +30,21 @@ The user is created with `--disabled-password` by default.
 
 This is usually enough to get the very basic container up and running.
 
-### Customization
+## Customization
 Any further customization can be done remotely, by either:
 * `ssh`ing and performing manual customization, or
 * scripted (`ssh devcon "bash -s" < ~/.bs/postinstall.sh`)
 
-#### Customization as `root`
+### Customization as `root`
 There should be minimal (if any) further customizations that need to be done as root. For example, if anything else needs to be installed, it should probably be built into a different image (so the install cost is incurred at build time). For example, [devcon-wm](https://github.com/alanmquach/devcon-wm/) builds on top if this core image to install a graphical environment.
 
-##### `docker exec`
+#### `docker exec`
 To run additional customization commands as root, simply run:
 ```
 docker exec prime /bin/sh -c 'echo "hello world" > /root/protected.txt'
 ```
 
-##### `/tmp/bootstrap.sh`
+#### `/tmp/bootstrap.sh`
 Alternatively, `/tmp/bootstrap.sh` optionally takes a bash script as its third argument:
 ```
 docker run -d -p XXXXX:22 -p 60000-60010:60000-60010/udp alanmquach/devcon-wm:latest \
