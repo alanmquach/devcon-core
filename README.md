@@ -28,7 +28,10 @@ This script handles user creation and authorizing public keys (`~/.ssh/authorize
 ```
 The user is created with `--disabled-password` by default.
 
-This is usually enough to get the very basic container up and running. Any further customization can be done remotely, by either:
+This is usually enough to get the very basic container up and running.
+
+### Customization
+Any further customization can be done remotely, by either:
 * `ssh`ing and performing manual customization, or
 * scripted (`ssh devcon "bash -s" < ~/.bs/postinstall.sh`)
 
