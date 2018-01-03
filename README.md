@@ -15,7 +15,7 @@ docker run -d \
 	-p XXXXX:22 \
 	-p 60000-60010:60000-60010/udp \
 	alanmquach/devcon-wm:latest \
-  /tmp/bootstrap.sh "developer" "public_key"
+	/tmp/bootstrap.sh "developer" "public_key"
 ```
 This will start the container with the default command `/usr/sbin/sshd -D` to run sshd as a daemon.
 * `-p XXXXX:22` binds the host's port `XXXXX` to the container's SSH port (22)
