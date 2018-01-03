@@ -1,7 +1,7 @@
 # `devcon-core` - Development Container Core Image
 A (relatively) slim, opinionated container used as an easily reproducible development environment.
 
-## Contains (but not limited to)
+Contains (but not limited to)
 * `openssh-server`
 * [`mosh`](https://mosh.org/)
 * `tmux`
