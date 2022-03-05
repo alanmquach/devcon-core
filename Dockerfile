@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 
 MAINTAINER Alan Quach <integsrtite@gmail.com>
 
@@ -18,13 +18,12 @@ RUN apt-get update && apt-get install -y \
     dnsutils \
     man \
     build-essential \
-    cmake python-dev \
+    cmake \
     tmux \
     git \
     vim \
     silversearcher-ag \
     mosh \
-    python-pip \
     && mkdir /var/run/sshd
 ADD bootstrap.sh /tmp/bootstrap.sh
 RUN locale-gen en_US.UTF-8
